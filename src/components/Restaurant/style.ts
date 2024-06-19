@@ -1,17 +1,38 @@
 import styled from 'styled-components';
 import { colors } from '../../styles';
+import { TagContent } from '../Tag/style';
 
 export const RestaurantContainer = styled.div`
   width: 472px;
   border: 1px solid ${colors.salmon};
   color: ${colors.salmon};
+  position: relative;
 
   img {
     width: 100%;
   }
 
+  .tagGroup {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    column-gap: 8px;
+
+    ${TagContent} {
+      padding: 6px 4px;
+    }
+  }
+
   div {
     padding: 8px 8px 12px;
+
+    .rating {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 700;
+    }
   }
 `;
 
@@ -28,6 +49,7 @@ export const Description = styled.p`
 export const ButtonLeanMore = styled.button`
   width: 82px;
   height: 24px;
+  padding: 4px 6px;
   background-color: ${colors.salmon};
   color: ${colors.cream};
   font-size: 14px;

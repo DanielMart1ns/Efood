@@ -12,7 +12,10 @@ const RestaurantList = ({ establishmentData }: Props) => (
       <Restaurant
         key={establishment.id}
         restaurantType={establishment.restaurantType}
+        emphasisProduct={establishment.emphasisProduct}
+        foodTypeTag={establishment.foodTypeTag}
         restaurantName={establishment.restaurantName}
+        rating={establishment.rating}
         description={establishment.description}
       />
     ))}
