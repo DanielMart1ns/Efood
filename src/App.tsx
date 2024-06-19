@@ -1,13 +1,13 @@
-import Banner from './components/Banner';
+import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from './styles';
+import ComponentRoutes from './routes';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <Banner />
-      <div className="container"></div>
-    </>
+      <ComponentRoutes />
+    </BrowserRouter>
   );
 }
 
