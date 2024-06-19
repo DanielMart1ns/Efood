@@ -35,7 +35,7 @@ const Restaurant = ({
         )}
         {emphasisProduct === undefined && <Tag>{foodTypeTag}</Tag>}
       </div>
-      <div>
+      <div className="marketing">
         <div className="rating">
           <RestaurantName>{restaurantName}</RestaurantName>
           <p>

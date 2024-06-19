@@ -24,7 +24,7 @@ export const RestaurantContainer = styled.div`
     }
   }
 
-  div {
+  .marketing {
     padding: 8px 8px 12px;
 
     .rating {
