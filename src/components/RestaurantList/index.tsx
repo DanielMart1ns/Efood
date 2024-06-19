@@ -10,6 +10,7 @@ const RestaurantList = ({ establishmentData }: Props) => (
   <ContainerList>
     {establishmentData.map((establishment) => (
       <Restaurant
+        key={establishment.id}
         restaurantType={establishment.restaurantType}
         restaurantName={establishment.restaurantName}
         description={establishment.description}
