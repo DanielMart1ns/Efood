@@ -1,5 +1,14 @@
+import Banner from './components/Banner';
+import { GlobalStyle } from './styles';
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Banner />
+      <div className="container"></div>
+    </>
+  );
 }
 
 export default App;
