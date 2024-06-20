@@ -6,6 +6,8 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        list-style: none;
     }
 
     .container{
@@ -18,4 +20,5 @@ export const GlobalStyle = createGlobalStyle`
 export const colors = {
   salmon: '#E66767',
   cream: '#FFEBD9',
+  white: '#fff',
 };

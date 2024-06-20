@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../../styles';
 import { TagContent } from '../Tag/style';
@@ -46,7 +47,7 @@ export const Description = styled.p`
   margin: 16px 0;
 `;
 
-export const ButtonLeanMore = styled.button`
+export const ButtonLeanMore = styled(Link)`
   width: 82px;
   height: 24px;
   padding: 4px 6px;

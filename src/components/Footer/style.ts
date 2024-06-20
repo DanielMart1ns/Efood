@@ -12,7 +12,6 @@ export const SocialLinks = styled.ul`
   justify-content: center;
   column-gap: 8px;
   margin-top: 32px;
-  list-style: none;
 `;
 
 export const FooterDescription = styled.p`

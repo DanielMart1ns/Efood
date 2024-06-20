@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <ComponentRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
