@@ -1,9 +1,12 @@
 import Banner from '../../components/Banner';
 
-const MenuRestaurant = () => (
-  <div className="container">
+import DishesList from '../../components/DishesList';
+
+const ItalianFood = () => (
+  <>
     <Banner menuIsOpen="yes" />
-  </div>
+    <DishesList />
+  </>
 );
 
-export default MenuRestaurant;
+export default ItalianFood;

@@ -15,7 +15,7 @@ export type Props = {
 const Banner = ({ menuIsOpen = 'no' }: Props) => (
   <BannerBody>
     <BannerLogo menuIsOpen={menuIsOpen}>
-      <div>
+      <div className="container">
         <RestaurantsLinks to="/" menuIsOpen={menuIsOpen}>
           Restaurantes
         </RestaurantsLinks>
@@ -25,8 +25,10 @@ const Banner = ({ menuIsOpen = 'no' }: Props) => (
       <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
     </BannerLogo>
     <RestaurantBanner menuIsOpen={menuIsOpen}>
-      <FoodType>Italiana</FoodType>
-      <h2>La Dolce Vita Trattoria</h2>
+      <div className="container">
+        <FoodType>Italiana</FoodType>
+        <h2>La Dolce Vita Trattoria</h2>
+      </div>
     </RestaurantBanner>
   </BannerBody>
 );

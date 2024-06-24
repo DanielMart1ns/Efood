@@ -43,7 +43,7 @@ const Restaurant = ({
           </p>
         </div>
         <Description>{description}</Description>
-        <ButtonLeanMore to="/menu">Saiba mais</ButtonLeanMore>
+        <ButtonLeanMore to="menu">Saiba mais</ButtonLeanMore>
       </div>
     </RestaurantContainer>
   );

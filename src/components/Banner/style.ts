@@ -7,14 +7,16 @@ import { Props } from '.';
 
 export const BannerBody = styled.div`
   font-weight: 900;
+  max-width: 1660px;
+  width: 100%;
+  margin: auto;
 `;
 
 export const BannerLogo = styled.div<Props>`
   background-image: url(${background});
-  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: ${(props) => (props.menuIsOpen === 'no' ? '40px 0' : '64px 0')};
+  padding: ${(props) => (props.menuIsOpen === 'no' ? '40px 0' : '30px 0 64px')};
   text-align: center;
 
   h1 {
@@ -24,12 +26,14 @@ export const BannerLogo = styled.div<Props>`
   div {
     display: ${(props) => (props.menuIsOpen === 'no' ? 'block' : 'flex')};
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     p {
       display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
       font-size: 18px;
       color: ${colors.salmon};
+      width: 250px;
+      text-align: right;
     }
   }
 `;
@@ -38,6 +42,8 @@ export const RestaurantsLinks = styled(Link)<Props>`
   display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
   font-size: 18px;
   color: ${colors.salmon};
+  width: 250px;
+  text-align: left;
 `;
 
 export const Title = styled.h1`
@@ -50,7 +56,7 @@ export const Title = styled.h1`
 
 export const RestaurantBanner = styled.div<Props>`
   display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
-  padding: 24px 0 32px 170px;
+  padding: 24px 0 32px;
   background-image: url(${foodRepresentation});
   background-size: cover;
   background-repeat: no-repeat;
