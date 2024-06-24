@@ -1,5 +1,4 @@
 import Banner from '../../components/Banner';
-
 import DishesList from '../../components/DishesList';
 
 const ItalianFood = () => (

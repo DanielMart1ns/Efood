@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import MenuRestaurant from './pages/MenuRestaurant';
+import RestaurantMenu from './pages/RestaurantMenu';
 
 const ComponentRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/menu" element={<MenuRestaurant />}></Route>
+    <Route path="/menu" element={<RestaurantMenu />}></Route>
   </Routes>
 );
 
