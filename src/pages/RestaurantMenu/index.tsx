@@ -1,11 +1,11 @@
 import Banner from '../../components/Banner';
 import DishesList from '../../components/DishesList';
 
-const ItalianFood = () => (
+const RestaurantMenu = () => (
   <>
     <Banner menuIsOpen="yes" />
     <DishesList />
   </>
 );
 
-export default ItalianFood;
+export default RestaurantMenu;
