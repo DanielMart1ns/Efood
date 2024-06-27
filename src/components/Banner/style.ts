@@ -7,7 +7,6 @@ import { Props } from '.';
 
 export const BannerBody = styled.div`
   font-weight: 900;
-  max-width: 1660px;
   width: 100%;
   margin: auto;
 `;
