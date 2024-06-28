@@ -1,17 +1,28 @@
+import { RestaurantAttributes } from '../../pages/Home';
 import Dishes from '../Dishes';
 import { ListContainer } from './style';
 
-const DishesList = () => (
-  <div className="container">
-    <ListContainer>
-      <Dishes />
-      <Dishes />
-      <Dishes />
-      <Dishes />
-      <Dishes />
-      <Dishes />
-    </ListContainer>
-  </div>
-);
+type Props = {
+  dishAttributes: RestaurantAttributes;
+};
 
+const DishesList = ({ dishAttributes }: Props) => {
+  return (
+    <div className="container">
+      <ListContainer>
+        {dishAttributes.cardapio.map((dish) => (
+          <li key={dish.id}>
+            <Dishes
+              picture={dish.foto}
+              name={dish.nome}
+              description={dish.descricao}
+              portion={dish.porcao}
+              price={dish.preco}
+            />
+          </li>
+        ))}
+      </ListContainer>
+    </div>
+  );
+};
 export default DishesList;

@@ -5,7 +5,7 @@ import RestaurantMenu from './pages/RestaurantMenu';
 const ComponentRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/menu" element={<RestaurantMenu />}></Route>
+    <Route path="/restaurant-menu/:id" element={<RestaurantMenu />}></Route>
   </Routes>
 );
 

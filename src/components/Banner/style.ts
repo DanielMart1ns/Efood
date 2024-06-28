@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import background from '../../assets/images/background.png';
-import foodRepresentation from '../../assets/images/italian-restaurant.png';
 import { colors } from '../../styles';
 import { Props } from '.';
 
@@ -11,7 +10,14 @@ export const BannerBody = styled.div`
   margin: auto;
 `;
 
-export const BannerLogo = styled.div<Props>`
+export const RestaurantsLinks = styled(Link)`
+  font-size: 18px;
+  color: ${colors.salmon};
+  width: 250px;
+  text-align: left;
+`;
+
+export const BannerLogo = styled.div<Omit<Props, 'restaurantBanner'>>`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,14 +41,10 @@ export const BannerLogo = styled.div<Props>`
       text-align: right;
     }
   }
-`;
 
-export const RestaurantsLinks = styled(Link)<Props>`
-  display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
-  font-size: 18px;
-  color: ${colors.salmon};
-  width: 250px;
-  text-align: left;
+  ${RestaurantsLinks} {
+    display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
+  }
 `;
 
 export const Title = styled.h1`
@@ -56,7 +58,7 @@ export const Title = styled.h1`
 export const RestaurantBanner = styled.div<Props>`
   display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
   padding: 24px 0 32px;
-  background-image: url(${foodRepresentation});
+  background-image: url(${(props) => props.restaurantBanner});
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 32px;

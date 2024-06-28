@@ -10,7 +10,10 @@ export const RestaurantContainer = styled.div`
   position: relative;
 
   img {
+    max-width: 472px;
     width: 100%;
+    max-height: 217px;
+    height: 100%;
   }
 
   .tagGroup {

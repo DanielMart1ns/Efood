@@ -7,43 +7,48 @@ import {
 } from './style';
 
 type Props = {
-  restaurantType: string;
-  emphasisProduct?: string;
-  foodTypeTag: string;
-  restaurantName: string;
-  rating: number;
-  description: string;
+  id: number;
+  titulo: string;
+  destacado: boolean;
+  tipo: string;
+  avaliacao: number;
+  descricao: string;
+  capa: string;
 };
 
 const Restaurant = ({
-  restaurantType,
-  emphasisProduct,
-  foodTypeTag,
-  restaurantName,
-  rating,
-  description,
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa,
 }: Props) => {
   return (
     <RestaurantContainer>
-      <img src={restaurantType} alt="Japanese Restaurant" />
+      <img src={capa} alt="Japanese Restaurant" />
       <div className="tagGroup">
-        {emphasisProduct !== undefined && (
+        {destacado ? (
           <>
-            <Tag>{emphasisProduct}</Tag>
-            <Tag>{foodTypeTag}</Tag>
+            <Tag>Destaque da semana</Tag>
+            <Tag>{tipo}</Tag>
           </>
+        ) : (
+          <Tag>{tipo}</Tag>
         )}
-        {emphasisProduct === undefined && <Tag>{foodTypeTag}</Tag>}
       </div>
       <div className="marketing">
         <div className="rating">
-          <RestaurantName>{restaurantName}</RestaurantName>
+          <RestaurantName>{titulo}</RestaurantName>
           <p>
-            {rating} <span>⭐</span>
+            {avaliacao} <span>⭐</span>
           </p>
         </div>
-        <Description>{description}</Description>
-        <ButtonLeanMore to="/menu">Saiba mais</ButtonLeanMore>
+        <Description>{descricao}</Description>
+        <ButtonLeanMore to={`/restaurant-menu/${id}`}>
+          Saiba mais
+        </ButtonLeanMore>
       </div>
     </RestaurantContainer>
   );

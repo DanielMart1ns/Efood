@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerList = styled.div`
+export const ContainerList = styled.ul`
   max-width: 1024px;
   width: 100%;
   margin: 80px auto 120px;

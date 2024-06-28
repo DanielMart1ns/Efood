@@ -10,24 +10,33 @@ import {
 
 export type Props = {
   menuIsOpen?: 'no' | 'yes';
+  restaurantBanner?: string;
+  foodType?: string;
+  restaurantName?: string;
 };
 
-const Banner = ({ menuIsOpen = 'no' }: Props) => (
+const Banner = ({
+  menuIsOpen = 'no',
+  restaurantBanner,
+  foodType,
+  restaurantName,
+}: Props) => (
   <BannerBody>
     <BannerLogo menuIsOpen={menuIsOpen}>
       <div className="container">
-        <RestaurantsLinks to="/" menuIsOpen={menuIsOpen}>
-          Restaurantes
-        </RestaurantsLinks>
+        <RestaurantsLinks to="/">Restaurantes</RestaurantsLinks>
         <img src={logo} alt="efood logo" />
         <p>0 produtos(s) no carrinho</p>
       </div>
       <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
     </BannerLogo>
-    <RestaurantBanner menuIsOpen={menuIsOpen}>
+    <RestaurantBanner
+      menuIsOpen={menuIsOpen}
+      restaurantBanner={restaurantBanner}
+    >
       <div className="container">
-        <FoodType>Italiana</FoodType>
-        <h2>La Dolce Vita Trattoria</h2>
+        <FoodType>{foodType}</FoodType>
+        <h2>{restaurantName}</h2>
       </div>
     </RestaurantBanner>
   </BannerBody>
