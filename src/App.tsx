@@ -10,7 +10,7 @@ function App() {
       <GlobalStyle />
       <ComponentRoutes />
       <Footer />
-      {/* <Cart /> */}
+      <Cart />
     </BrowserRouter>
   );
 }
