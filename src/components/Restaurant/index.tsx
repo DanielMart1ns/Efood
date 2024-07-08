@@ -1,3 +1,4 @@
+import Button from '../Button';
 import Tag from '../Tag';
 import {
   ButtonLeanMore,
@@ -46,9 +47,16 @@ const Restaurant = ({
           </p>
         </div>
         <Description>{descricao}</Description>
-        <ButtonLeanMore to={`/restaurant-menu/${id}`}>
+
+        <Button
+          size="fit"
+          title="Clique para saber mais"
+          bgColor="salmon"
+          type="link"
+          to={`/restaurant-menu/${id}`}
+        >
           Saiba mais
-        </ButtonLeanMore>
+        </Button>
       </div>
     </RestaurantContainer>
   );

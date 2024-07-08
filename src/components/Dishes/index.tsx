@@ -9,6 +9,7 @@ import {
   Modal,
   ModalContent,
 } from './style';
+import Button from '../Button';
 
 type Props = {
   picture: string;
@@ -34,24 +35,30 @@ const Dishes = ({ picture, price, name, description, portion }: Props) => {
         <img src={picture} alt={name} />
         <DishName>{name}</DishName>
         <DishDescription>{description}</DishDescription>
-        <BtnDetails
+        <Button
+          title="Mais detalhes"
+          size="full"
+          bgColor="cream"
+          type="button"
           onClick={() => {
             setModal(true);
           }}
         >
           Mais detalhes
-        </BtnDetails>
+        </Button>
       </DishCard>
       <Modal className={modal ? 'show' : ''}>
         <ModalContent className="container">
-          <img
-            className="btnClose"
-            src={btnClose}
-            alt="Botão fechar"
-            onClick={() => {
-              setModal(false);
-            }}
-          />
+          <button>
+            <img
+              className="btnClose"
+              src={btnClose}
+              alt="Botão fechar"
+              onClick={() => {
+                setModal(false);
+              }}
+            />
+          </button>
           <img
             className="dishName"
             src={picture}

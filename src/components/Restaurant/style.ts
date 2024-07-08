@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../../styles';
 import { TagContent } from '../Tag/style';
+import { ButtonContainer } from '../Button/style';
 
 export const RestaurantContainer = styled.div`
   width: 472px;
@@ -37,6 +38,10 @@ export const RestaurantContainer = styled.div`
       font-size: 18px;
       font-weight: 700;
     }
+  }
+
+  ${ButtonContainer} {
+    padding: 4px 6px;
   }
 `;
 
