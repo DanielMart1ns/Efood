@@ -13,6 +13,7 @@ const DishesList = ({ dishAttributes }: Props) => {
         {dishAttributes.cardapio.map((dish) => (
           <li key={dish.id}>
             <Dishes
+              id={dish.id}
               picture={dish.foto}
               name={dish.nome}
               description={dish.descricao}

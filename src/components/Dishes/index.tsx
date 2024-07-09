@@ -10,31 +10,42 @@ import {
 } from './style';
 import Button from '../Button';
 import { useDispatch } from 'react-redux';
-import { open } from '../store/cart';
+import { addItem, open } from '../store/cart';
+
+export const formatCurrency = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(price);
+};
 
 type Props = {
   picture: string;
   price: number;
-  // id: number;
+  id: number;
   name: string;
   description: string;
   portion: string;
 };
 
-const Dishes = ({ picture, price, name, description, portion }: Props) => {
+const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
   const [modal, setModal] = useState<boolean>(false);
-
-  const formatCurrency = (price: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(price);
+  const dishData = {
+    picture,
+    name,
+    price,
+    id,
   };
 
   const dispatch = useDispatch();
   const openCart = () => {
     setModal(false);
     dispatch(open());
+  };
+
+  const addToCart = () => {
+    dispatch(addItem(dishData));
+    openCart();
   };
   return (
     <>
@@ -75,7 +86,7 @@ const Dishes = ({ picture, price, name, description, portion }: Props) => {
             <h3>{name}</h3>
             <DishDescription>{description}</DishDescription>
             <p>Serve de {portion}</p>
-            <BtnAdd onClick={openCart}>
+            <BtnAdd onClick={addToCart}>
               Adicionar ao carrinho - R$ {formatCurrency(price)}
             </BtnAdd>
           </div>

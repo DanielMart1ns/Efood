@@ -1,8 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RestaurantAttributes } from '../../pages/Home';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootReducer } from '.';
+
+interface itemsCart {
+  name: string;
+  price: number;
+  picture: string;
+  id: number;
+}
 
 type cartState = {
-  items: RestaurantAttributes[];
+  items: itemsCart[];
   isOpen: boolean;
 };
 
@@ -21,8 +28,19 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false;
     },
+    addItem: (state, action: PayloadAction<itemsCart>) => {
+      const item = state.items.find((item) => item.id === action.payload.id);
+      if (!item) {
+        state.items.push(action.payload);
+      } else {
+        alert('item já adicionado');
+      }
+    },
+    removeItem: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
   },
 });
 
-export const { open, close } = cartSlice.actions;
+export const { open, close, addItem, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -32,8 +32,15 @@ export const SideBar = styled.aside`
   max-width: 360px;
   width: 100%;
   background-color: ${colors.salmon};
+  overflow-y: scroll;
 
-  button {
+  .hiddenCartIcon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .removeItemIcon {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -60,6 +67,13 @@ export const Shopping = styled.li`
     right: 8px;
     cursor: pointer;
   }
+`;
+
+export const EmptyState = styled.p`
+  font-weight: 700;
+  font-size: 14px;
+  color: ${colors.cream};
+  margin-top: 32px;
 `;
 
 export const DishName = styled.p`
