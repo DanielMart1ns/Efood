@@ -2,7 +2,6 @@ import { useState } from 'react';
 import btnClose from '../../assets/images/close.png';
 import {
   BtnAdd,
-  BtnDetails,
   DishCard,
   DishDescription,
   DishName,
@@ -10,6 +9,8 @@ import {
   ModalContent,
 } from './style';
 import Button from '../Button';
+import { useDispatch } from 'react-redux';
+import { open } from '../store/cart';
 
 type Props = {
   picture: string;
@@ -28,6 +29,12 @@ const Dishes = ({ picture, price, name, description, portion }: Props) => {
       style: 'currency',
       currency: 'BRL',
     }).format(price);
+  };
+
+  const dispatch = useDispatch();
+  const openCart = () => {
+    setModal(false);
+    dispatch(open());
   };
   return (
     <>
@@ -68,7 +75,9 @@ const Dishes = ({ picture, price, name, description, portion }: Props) => {
             <h3>{name}</h3>
             <DishDescription>{description}</DishDescription>
             <p>Serve de {portion}</p>
-            <BtnAdd>Adicionar ao carrinho - R$ {formatCurrency(price)}</BtnAdd>
+            <BtnAdd onClick={openCart}>
+              Adicionar ao carrinho - R$ {formatCurrency(price)}
+            </BtnAdd>
           </div>
         </ModalContent>
         <div

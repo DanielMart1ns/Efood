@@ -1,6 +1,6 @@
 import Banner from '../../components/Banner';
 import RestaurantList from '../../components/RestaurantList';
-import { useEffect, useState } from 'react';
+import { useGetRestaurantsQuery } from '../../services/api';
 
 interface restaurantMenu {
   foto: string;
@@ -23,15 +23,7 @@ export type RestaurantAttributes = {
 };
 
 const Home = () => {
-  const [restaurantData, setRestaurantData] = useState<RestaurantAttributes[]>(
-    []
-  );
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurantData(res));
-  }, []);
+  const { data: restaurantData } = useGetRestaurantsQuery();
 
   if (!restaurantData) {
     return <h2>Carregando...</h2>;

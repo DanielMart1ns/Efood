@@ -9,6 +9,11 @@ export const CartContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  display: none;
+
+  &.show {
+    display: flex;
+  }
 `;
 
 export const Overlay = styled.div`
@@ -27,6 +32,12 @@ export const SideBar = styled.aside`
   max-width: 360px;
   width: 100%;
   background-color: ${colors.salmon};
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 export const Shopping = styled.li`

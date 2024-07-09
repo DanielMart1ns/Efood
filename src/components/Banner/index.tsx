@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import {
   BannerBody,
@@ -25,7 +26,9 @@ const Banner = ({
     <BannerLogo menuIsOpen={menuIsOpen}>
       <div className="container">
         <RestaurantsLinks to="/">Restaurantes</RestaurantsLinks>
-        <img src={logo} alt="efood logo" />
+        <Link to="/">
+          <img src={logo} alt="efood logo" />
+        </Link>
         <p>0 produtos(s) no carrinho</p>
       </div>
       <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
