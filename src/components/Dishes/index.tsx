@@ -66,10 +66,9 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
         </Button>
       </DishCard>
       <Modal className={modal ? 'show' : ''}>
-        <ModalContent className="container">
-          <button>
+        <ModalContent>
+          <button className="btnClose" type="button">
             <img
-              className="btnClose"
               src={btnClose}
               alt="Botão fechar"
               onClick={() => {
@@ -78,7 +77,7 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
             />
           </button>
           <img
-            className="dishName"
+            className="dishPicture"
             src={picture}
             alt={`foto do prato ${name}`}
           />

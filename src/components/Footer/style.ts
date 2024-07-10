@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 
 export const FooterContainer = styled.div`
   background-color: ${colors.cream};
@@ -20,4 +20,8 @@ export const FooterDescription = styled.p`
   text-align: center;
   max-width: 480px;
   margin: 80px auto 0;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 16px;
+  }
 `;

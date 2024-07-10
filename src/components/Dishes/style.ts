@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { colors } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 
 export const DishCard = styled.div`
   padding: 8px;
-  width: 320px;
+  max-width: 320px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -15,6 +16,7 @@ export const DishCard = styled.div`
     max-height: 167px;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -70,6 +72,8 @@ export const ModalContent = styled.div`
   padding: 32px;
   color: ${colors.cream};
   font-size: 14px;
+  max-width: 1024px;
+  width: 100%;
 
   ${DishDescription} {
     line-height: 22px;
@@ -83,13 +87,34 @@ export const ModalContent = styled.div`
     width: 16px;
     height: 16px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
   }
 
-  .dishName {
+  .dishPicture {
     object-fit: cover;
     width: 280px;
     height: 280px;
     margin-right: 24px;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    text-align: center;
+    overflow-y: scroll;
+
+    .dishPicture {
+      margin: 0 auto 20px;
+      max-width: 280px;
+      max-height: 280px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 `;
 

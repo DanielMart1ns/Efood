@@ -5,7 +5,8 @@ import { TagContent } from '../Tag/style';
 import { ButtonContainer } from '../Button/style';
 
 export const RestaurantContainer = styled.div`
-  width: 472px;
+  max-width: 472px;
+  width: 100%;
   border: 1px solid ${colors.salmon};
   color: ${colors.salmon};
   position: relative;
@@ -15,6 +16,7 @@ export const RestaurantContainer = styled.div`
     width: 100%;
     max-height: 217px;
     height: 100%;
+    object-fit: cover;
   }
 
   .tagGroup {

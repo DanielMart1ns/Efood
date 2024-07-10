@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import background from '../../assets/images/background.png';
-import { colors } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 import { Props } from '.';
 
 export const BannerBody = styled.div`
@@ -15,6 +15,9 @@ export const RestaurantsLinks = styled(Link)`
   color: ${colors.salmon};
   width: 250px;
   text-align: left;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
+  }
 `;
 
 export const BannerLogo = styled.div<Omit<Props, 'restaurantBanner'>>`
@@ -39,11 +42,39 @@ export const BannerLogo = styled.div<Omit<Props, 'restaurantBanner'>>`
       color: ${colors.salmon};
       width: 250px;
       text-align: right;
+      @media (max-width: ${breakpoints.mobile}) {
+        font-size: 16px;
+        text-align: right;
+      }
     }
+
+    @media (max-width: ${breakpoints.desktop}) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: ${breakpoints.mobile}) {
+      margin-top: 20px;
+    }
+  }
+
+  .mobileLogoImage {
+    display: none;
   }
 
   ${RestaurantsLinks} {
     display: ${(props) => (props.menuIsOpen === 'no' ? 'none' : 'block')};
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding-bottom: 40px;
+
+    .mobileLogoImage {
+      display: block;
+    }
+
+    .desktopLogoImage {
+      display: none;
+    }
   }
 `;
 
@@ -53,6 +84,11 @@ export const Title = styled.h1`
   font-size: 36px;
   line-height: 42px;
   color: ${colors.salmon};
+
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-top: 40px;
+    font-size: 24px;
+  }
 `;
 
 export const RestaurantBanner = styled.div<Props>`

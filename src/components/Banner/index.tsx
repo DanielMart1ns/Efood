@@ -30,9 +30,12 @@ const Banner = ({
   return (
     <BannerBody>
       <BannerLogo menuIsOpen={menuIsOpen}>
+        <Link to="/" className="mobileLogoImage">
+          <img src={logo} alt="efood logo" />
+        </Link>
         <div className="container">
           <RestaurantsLinks to="/">Restaurantes</RestaurantsLinks>
-          <Link to="/">
+          <Link to="/" className="desktopLogoImage">
             <img src={logo} alt="efood logo" />
           </Link>
           <p

@@ -31,9 +31,7 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <div className="container">
-        <RestaurantList restaurantData={restaurantData} />
-      </div>
+      <RestaurantList restaurantData={restaurantData} />
     </>
   );
 };

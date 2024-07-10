@@ -1,11 +1,6 @@
 import Button from '../Button';
 import Tag from '../Tag';
-import {
-  ButtonLeanMore,
-  Description,
-  RestaurantContainer,
-  RestaurantName,
-} from './style';
+import { Description, RestaurantContainer, RestaurantName } from './style';
 
 type Props = {
   id: number;
@@ -28,7 +23,7 @@ const Restaurant = ({
 }: Props) => {
   return (
     <RestaurantContainer>
-      <img src={capa} alt="Japanese Restaurant" />
+      <img src={capa} alt={`imagem do estabelecimento ${titulo}`} />
       <div className="tagGroup">
         {destacado ? (
           <>
