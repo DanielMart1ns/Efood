@@ -14,25 +14,6 @@ export const CartContainer = styled.div`
   &.show {
     display: flex;
   }
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.8;
-`;
-
-export const SideBar = styled.aside`
-  z-index: 1;
-  padding: 16px 8px;
-  max-width: 360px;
-  width: 100%;
-  background-color: ${colors.salmon};
-  overflow-y: scroll;
 
   .hiddenCartIcon {
     background-color: transparent;

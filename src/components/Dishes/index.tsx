@@ -10,14 +10,8 @@ import {
 } from './style';
 import Button from '../Button';
 import { useDispatch } from 'react-redux';
-import { addItem, open } from '../store/cart';
-
-export const formatCurrency = (price: number) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(price);
-};
+import { addItem, openCart } from '../store/cart';
+import { formatCurrency } from '../../utils';
 
 type Props = {
   picture: string;
@@ -38,14 +32,14 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
   };
 
   const dispatch = useDispatch();
-  const openCart = () => {
+  const displayCart = () => {
     setModal(false);
-    dispatch(open());
+    dispatch(openCart());
   };
 
   const addToCart = () => {
     dispatch(addItem(dishData));
-    openCart();
+    displayCart();
   };
   return (
     <>

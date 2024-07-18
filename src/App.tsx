@@ -5,6 +5,7 @@ import ComponentRoutes from './routes';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import { store } from './components/store';
+import CheckoutForm from './components/CheckoutForm';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <ComponentRoutes />
         <Footer />
         <Cart />
+        <CheckoutForm />
       </BrowserRouter>
     </Provider>
   );

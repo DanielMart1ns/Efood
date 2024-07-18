@@ -9,7 +9,7 @@ import {
   Title,
 } from './style';
 import { useDispatch, useSelector } from 'react-redux';
-import { open } from '../store/cart';
+import { openCart } from '../store/cart';
 import { RootReducer } from '../store';
 
 export type Props = {
@@ -31,7 +31,9 @@ const Banner = ({
     <BannerBody>
       <BannerLogo menuIsOpen={menuIsOpen}>
         <Link to="/" className="mobileLogoImage">
-          <img src={logo} alt="efood logo" />
+          <h1>
+            <img src={logo} alt="Efood" />
+          </h1>
         </Link>
         <div className="container">
           <RestaurantsLinks to="/">Restaurantes</RestaurantsLinks>
@@ -40,7 +42,7 @@ const Banner = ({
           </Link>
           <p
             onClick={() => {
-              dispatch(open());
+              dispatch(openCart());
             }}
             style={{ cursor: 'pointer' }}
           >

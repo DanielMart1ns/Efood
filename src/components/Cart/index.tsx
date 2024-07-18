@@ -3,40 +3,40 @@ import {
   DishName,
   DishPrice,
   EmptyState,
-  Overlay,
   Shopping,
-  SideBar,
   TotalPrice,
 } from './style';
 import remove from '../../assets/images/remove.png';
 import closeBtn from '../../assets/images/close.png';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { close, removeItem } from '../store/cart';
+import { closeCart, removeItem } from '../store/cart';
+import { openCheckoutForm } from '../store/checkoutForm';
 import { RootReducer } from '../store';
-import { formatCurrency } from '../Dishes';
+import { Overlay, SideBar } from '../../styles';
+import { formatCurrency, getTotalPrice } from '../../utils';
 const Cart = () => {
   const dispatch = useDispatch();
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart);
+  const { cartIsOpen, items } = useSelector((state: RootReducer) => state.cart);
 
-  const closeCart = () => {
-    dispatch(close());
+  const hideCart = () => {
+    dispatch(closeCart());
+  };
+
+  const openForm = () => {
+    dispatch(closeCart());
+    dispatch(openCheckoutForm());
   };
 
   const removeCartItem = (itemSelected: number) => {
     dispatch(removeItem(itemSelected));
   };
 
-  const getTotalPrice = () => {
-    return items.reduce((previous, current) => {
-      return (previous += current.price);
-    }, 0);
-  };
   return (
-    <CartContainer className={isOpen ? 'show' : ''}>
-      <Overlay onClick={closeCart} />
+    <CartContainer className={cartIsOpen ? 'show' : ''}>
+      <Overlay onClick={hideCart} />
       <SideBar>
-        <button className="hiddenCartIcon" type="button" onClick={closeCart}>
+        <button className="hiddenCartIcon" type="button" onClick={hideCart}>
           <img src={closeBtn} alt="esconder carrinho" />
         </button>
         {items.length > 0 ? (
@@ -64,13 +64,16 @@ const Cart = () => {
           <EmptyState>Nenhum item adicionado</EmptyState>
         )}
         <TotalPrice>
-          Valor total <span>{formatCurrency(getTotalPrice())}</span>
+          Valor total <span>{formatCurrency(getTotalPrice(items))}</span>
         </TotalPrice>
         <Button
           title="Clique para continuar com a entrega"
           size="full"
           bgColor="cream"
           type="button"
+          onClick={() => {
+            openForm();
+          }}
         >
           Continuar com a entrega
         </Button>

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './cart';
+import checkoutFormReducer from './checkoutForm';
 import api from '../../services/api';
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
+    checkout: checkoutFormReducer,
     [api.reducerPath]: api.reducer,
   },
 

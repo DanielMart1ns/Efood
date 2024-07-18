@@ -7,7 +7,7 @@ export type Props = {
   onClick?: () => void;
   bgColor: 'salmon' | 'cream';
   to?: string;
-  type: 'button' | 'link';
+  type: 'button' | 'link' | 'submit';
 };
 
 const Button = ({
@@ -19,12 +19,12 @@ const Button = ({
   type,
   to,
 }: Props) => {
-  if (type === 'button') {
+  if (type !== 'link') {
     return (
       <ButtonContainer
         bgColor={bgColor}
         title={title}
-        type="button"
+        type={type}
         size={size}
         onClick={onClick}
       >
