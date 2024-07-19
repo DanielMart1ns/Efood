@@ -40,43 +40,53 @@ const Cart = () => {
           <img src={closeBtn} alt="esconder carrinho" />
         </button>
         {items.length > 0 ? (
-          <ul>
-            {items.map((item) => (
-              <Shopping key={item.id}>
-                <img className="dishImage" src={item.picture} alt={item.name} />
-                <div>
-                  <DishName>{item.name}</DishName>
-                  <DishPrice>{formatCurrency(item.price)}</DishPrice>
-                </div>
-                <button
-                  className="removeItemIcon"
-                  type="button"
-                  onClick={() => {
-                    removeCartItem(item.id);
-                  }}
-                >
-                  <img className="removeIcon" src={remove} alt="remove item" />
-                </button>
-              </Shopping>
-            ))}
-          </ul>
+          <>
+            <ul>
+              {items.map((item) => (
+                <Shopping key={item.id}>
+                  <img
+                    className="dishImage"
+                    src={item.picture}
+                    alt={item.name}
+                  />
+                  <div>
+                    <DishName>{item.name}</DishName>
+                    <DishPrice>{formatCurrency(item.price)}</DishPrice>
+                  </div>
+                  <button
+                    className="removeItemIcon"
+                    type="button"
+                    onClick={() => {
+                      removeCartItem(item.id);
+                    }}
+                  >
+                    <img
+                      className="removeIcon"
+                      src={remove}
+                      alt="remove item"
+                    />
+                  </button>
+                </Shopping>
+              ))}
+            </ul>
+            <TotalPrice>
+              Valor total <span>{formatCurrency(getTotalPrice(items))}</span>
+            </TotalPrice>
+            <Button
+              title="Clique para continuar com a entrega"
+              size="full"
+              bgColor="cream"
+              type="button"
+              onClick={() => {
+                openForm();
+              }}
+            >
+              Continuar com a entrega
+            </Button>
+          </>
         ) : (
           <EmptyState>Nenhum item adicionado</EmptyState>
         )}
-        <TotalPrice>
-          Valor total <span>{formatCurrency(getTotalPrice(items))}</span>
-        </TotalPrice>
-        <Button
-          title="Clique para continuar com a entrega"
-          size="full"
-          bgColor="cream"
-          type="button"
-          onClick={() => {
-            openForm();
-          }}
-        >
-          Continuar com a entrega
-        </Button>
       </SideBar>
     </CartContainer>
   );

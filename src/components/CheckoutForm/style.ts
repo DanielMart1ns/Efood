@@ -49,7 +49,12 @@ export const CheckoutContainer = styled.div`
       color: #4b4b4b;
       height: 32px;
       width: 100%;
-      border: none;
+      border: 3px solid ${colors.cream};
+
+      &.error {
+        border-radius: 10px;
+        border: 3px solid darkred;
+      }
     }
 
     .nav-form-section {
@@ -64,4 +69,15 @@ export const CheckoutContainer = styled.div`
 export const SplitFields = styled.div`
   display: flex;
   column-gap: 34px;
+  div {
+    width: 155px;
+  }
+
+  .card-number {
+    width: 228px;
+  }
+
+  .card-code {
+    width: 87px;
+  }
 `;
