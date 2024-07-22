@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.svg';
-import {
-  BannerBody,
-  BannerLogo,
-  FoodType,
-  RestaurantBanner,
-  RestaurantsLinks,
-  Title,
-} from './style';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { openCart } from '../store/cart';
 import { RootReducer } from '../store';
+
+import logo from '../../assets/images/logo.svg';
+
+import * as S from './style';
 
 export type Props = {
   menuIsOpen?: 'no' | 'yes';
@@ -28,15 +24,15 @@ const Banner = ({
   const dispatch = useDispatch();
   const { items } = useSelector((state: RootReducer) => state.cart);
   return (
-    <BannerBody>
-      <BannerLogo menuIsOpen={menuIsOpen}>
+    <S.BannerBody>
+      <S.BannerLogo menuIsOpen={menuIsOpen}>
         <Link to="/" className="mobileLogoImage">
           <h1>
             <img src={logo} alt="Efood" />
           </h1>
         </Link>
         <div className="container">
-          <RestaurantsLinks to="/">Restaurantes</RestaurantsLinks>
+          <S.RestaurantsLinks to="/">Restaurantes</S.RestaurantsLinks>
           <Link to="/" className="desktopLogoImage">
             <img src={logo} alt="efood logo" />
           </Link>
@@ -49,18 +45,20 @@ const Banner = ({
             {items.length} produtos(s) no carrinho
           </p>
         </div>
-        <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
-      </BannerLogo>
-      <RestaurantBanner
+        <S.Title>
+          Viva experiências gastronômicas no conforto da sua casa
+        </S.Title>
+      </S.BannerLogo>
+      <S.RestaurantBanner
         menuIsOpen={menuIsOpen}
         restaurantBanner={restaurantBanner}
       >
         <div className="container">
-          <FoodType>{foodType}</FoodType>
+          <S.FoodType>{foodType}</S.FoodType>
           <h2>{restaurantName}</h2>
         </div>
-      </RestaurantBanner>
-    </BannerBody>
+      </S.RestaurantBanner>
+    </S.BannerBody>
   );
 };
 

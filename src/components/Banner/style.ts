@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import background from '../../assets/images/background.png';
 import { breakpoints, colors } from '../../styles';
 import { Props } from '.';

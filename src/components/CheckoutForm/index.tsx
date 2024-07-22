@@ -1,16 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Overlay, SideBar } from '../../styles';
-import { CheckoutContainer, SplitFields } from './style';
-import { RootReducer } from '../store';
-import { closeCheckoutForm } from '../store/checkoutForm';
-import Button from '../Button';
 import { useState } from 'react';
-import { openCart } from '../store/cart';
-import { formatCurrency, getTotalPrice } from '../../utils';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputMask from 'react-input-mask';
+
+import Button from '../Button';
+import { Overlay, SideBar } from '../../styles';
+
+import { formatCurrency, getTotalPrice } from '../../utils';
+
+import { RootReducer } from '../store';
+import { closeCheckoutForm } from '../store/checkoutForm';
+import { openCart } from '../store/cart';
+
 import { usePurchaseMutation } from '../../services/api';
+
+import { CheckoutContainer, SplitFields } from './style';
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();

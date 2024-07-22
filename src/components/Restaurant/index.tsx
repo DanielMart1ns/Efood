@@ -1,6 +1,6 @@
 import Button from '../Button';
 import Tag from '../Tag';
-import { Description, RestaurantContainer, RestaurantName } from './style';
+import * as S from './style';
 
 type Props = {
   id: number;
@@ -22,7 +22,7 @@ const Restaurant = ({
   capa,
 }: Props) => {
   return (
-    <RestaurantContainer>
+    <S.RestaurantContainer>
       <img src={capa} alt={`imagem do estabelecimento ${titulo}`} />
       <div className="tagGroup">
         {destacado ? (
@@ -36,12 +36,12 @@ const Restaurant = ({
       </div>
       <div className="marketing">
         <div className="rating">
-          <RestaurantName>{titulo}</RestaurantName>
+          <S.RestaurantName>{titulo}</S.RestaurantName>
           <p>
             {avaliacao} <span>⭐</span>
           </p>
         </div>
-        <Description>{descricao}</Description>
+        <S.Description>{descricao}</S.Description>
 
         <Button
           size="fit"
@@ -53,7 +53,7 @@ const Restaurant = ({
           Saiba mais
         </Button>
       </div>
-    </RestaurantContainer>
+    </S.RestaurantContainer>
   );
 };
 

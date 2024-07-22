@@ -1,20 +1,18 @@
-import {
-  CartContainer,
-  DishName,
-  DishPrice,
-  EmptyState,
-  Shopping,
-  TotalPrice,
-} from './style';
-import remove from '../../assets/images/remove.png';
-import closeBtn from '../../assets/images/close.png';
-import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
+
+import Button from '../Button';
+import { Overlay, SideBar } from '../../styles';
+
+import { formatCurrency, getTotalPrice } from '../../utils';
+
+import { RootReducer } from '../store';
 import { closeCart, removeItem } from '../store/cart';
 import { openCheckoutForm } from '../store/checkoutForm';
-import { RootReducer } from '../store';
-import { Overlay, SideBar } from '../../styles';
-import { formatCurrency, getTotalPrice } from '../../utils';
+
+import remove from '../../assets/images/remove.png';
+import closeBtn from '../../assets/images/close.png';
+
+import * as S from './style';
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartIsOpen, items } = useSelector((state: RootReducer) => state.cart);
@@ -33,7 +31,7 @@ const Cart = () => {
   };
 
   return (
-    <CartContainer className={cartIsOpen ? 'show' : ''}>
+    <S.CartContainer className={cartIsOpen ? 'show' : ''}>
       <Overlay onClick={hideCart} />
       <SideBar>
         <button className="hiddenCartIcon" type="button" onClick={hideCart}>
@@ -43,15 +41,15 @@ const Cart = () => {
           <>
             <ul>
               {items.map((item) => (
-                <Shopping key={item.id}>
+                <S.Shopping key={item.id}>
                   <img
                     className="dishImage"
                     src={item.picture}
                     alt={item.name}
                   />
                   <div>
-                    <DishName>{item.name}</DishName>
-                    <DishPrice>{formatCurrency(item.price)}</DishPrice>
+                    <S.DishName>{item.name}</S.DishName>
+                    <S.DishPrice>{formatCurrency(item.price)}</S.DishPrice>
                   </div>
                   <button
                     className="removeItemIcon"
@@ -66,12 +64,12 @@ const Cart = () => {
                       alt="remove item"
                     />
                   </button>
-                </Shopping>
+                </S.Shopping>
               ))}
             </ul>
-            <TotalPrice>
+            <S.TotalPrice>
               Valor total <span>{formatCurrency(getTotalPrice(items))}</span>
-            </TotalPrice>
+            </S.TotalPrice>
             <Button
               title="Clique para continuar com a entrega"
               size="full"
@@ -85,10 +83,10 @@ const Cart = () => {
             </Button>
           </>
         ) : (
-          <EmptyState>Nenhum item adicionado</EmptyState>
+          <S.EmptyState>Nenhum item adicionado</S.EmptyState>
         )}
       </SideBar>
-    </CartContainer>
+    </S.CartContainer>
   );
 };
 

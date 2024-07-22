@@ -1,6 +1,8 @@
+import { useParams } from 'react-router-dom';
+
 import Banner from '../../components/Banner';
 import DishesList from '../../components/DishesList';
-import { useParams } from 'react-router-dom';
+
 import { useGetDishesQuery } from '../../services/api';
 
 const RestaurantMenu = () => {

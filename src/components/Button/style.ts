@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../../styles';
 import { Props } from '.';
-import { Link } from 'react-router-dom';
 
 export const ButtonContainer = styled.button<Props>`
   font-size: 14px;

@@ -1,8 +1,9 @@
-import { FooterContainer, SocialLinks, FooterDescription } from './style';
 import logo from '../../assets/images/logo.svg';
 import instagramLogo from '../../assets/images/instagram-logo.svg';
 import facebookLogo from '../../assets/images/facebook-logo.svg';
 import twitterLogo from '../../assets/images/twitter-logo.svg';
+
+import { FooterContainer, SocialLinks, FooterDescription } from './style';
 
 const Footer = () => (
   <FooterContainer>

@@ -1,17 +1,14 @@
 import { useState } from 'react';
-import btnClose from '../../assets/images/close.png';
-import {
-  BtnAdd,
-  DishCard,
-  DishDescription,
-  DishName,
-  Modal,
-  ModalContent,
-} from './style';
-import Button from '../Button';
 import { useDispatch } from 'react-redux';
+
+import Button from '../Button';
+
 import { addItem, openCart } from '../store/cart';
 import { formatCurrency, getDescription } from '../../utils';
+
+import btnClose from '../../assets/images/close.png';
+
+import * as S from './style';
 
 type Props = {
   picture: string;
@@ -44,10 +41,12 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
 
   return (
     <>
-      <DishCard>
+      <S.DishCard>
         <img src={picture} alt={name} />
-        <DishName>{name}</DishName>
-        <DishDescription>{getDescription(description, 'dish')}</DishDescription>
+        <S.DishName>{name}</S.DishName>
+        <S.DishDescription>
+          {getDescription(description, 'dish')}
+        </S.DishDescription>
         <Button
           title="Mais detalhes"
           size="full"
@@ -59,9 +58,9 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
         >
           Mais detalhes
         </Button>
-      </DishCard>
-      <Modal className={modal ? 'show' : ''}>
-        <ModalContent>
+      </S.DishCard>
+      <S.Modal className={modal ? 'show' : ''}>
+        <S.ModalContent>
           <button className="btnClose" type="button">
             <img
               src={btnClose}
@@ -78,20 +77,20 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
           />
           <div>
             <h3>{name}</h3>
-            <DishDescription>{description}</DishDescription>
+            <S.DishDescription>{description}</S.DishDescription>
             <p>Serve de {portion}</p>
-            <BtnAdd onClick={addToCart}>
+            <S.BtnAdd onClick={addToCart}>
               Adicionar ao carrinho - R$ {formatCurrency(price)}
-            </BtnAdd>
+            </S.BtnAdd>
           </div>
-        </ModalContent>
+        </S.ModalContent>
         <div
           className="overlay"
           onClick={() => {
             setModal(false);
           }}
         ></div>
-      </Modal>
+      </S.Modal>
     </>
   );
 };

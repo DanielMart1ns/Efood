@@ -1,4 +1,3 @@
-import { RestaurantAttributes } from '../../pages/Home';
 import Dishes from '../Dishes';
 import { ListContainer } from './style';
 

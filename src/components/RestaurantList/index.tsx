@@ -1,4 +1,3 @@
-import { RestaurantAttributes } from '../../pages/Home';
 import Restaurant from '../Restaurant';
 import { ContainerList } from './style';
 
