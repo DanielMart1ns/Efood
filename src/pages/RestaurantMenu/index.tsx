@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
+import { ClockLoader } from 'react-spinners';
 
+import { colors, LoadingPage } from '../../styles';
 import Banner from '../../components/Banner';
 import DishesList from '../../components/DishesList';
 
@@ -10,7 +12,11 @@ const RestaurantMenu = () => {
   const { data: productData } = useGetDishesQuery(id!);
 
   if (!productData) {
-    return <h2>Carregando...</h2>;
+    return (
+      <LoadingPage>
+        <ClockLoader color={colors.salmon} />
+      </LoadingPage>
+    );
   }
 
   return (
