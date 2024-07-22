@@ -34,6 +34,14 @@ export const CheckoutContainer = styled.div`
       margin-bottom: 16px;
     }
 
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: ${colors.cream};
+      margin-bottom: 24px;
+    }
+
     label {
       font-size: 14px;
       color: ${colors.cream};

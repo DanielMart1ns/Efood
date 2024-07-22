@@ -44,6 +44,7 @@ export const RestaurantContainer = styled.div`
 
   ${ButtonContainer} {
     padding: 4px 6px;
+    display: block;
   }
 `;
 

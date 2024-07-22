@@ -23,4 +23,5 @@ const RestaurantList = ({ restaurantData }: Props) => (
     ))}
   </ContainerList>
 );
+
 export default RestaurantList;

@@ -11,7 +11,7 @@ import {
 import Button from '../Button';
 import { useDispatch } from 'react-redux';
 import { addItem, openCart } from '../store/cart';
-import { formatCurrency } from '../../utils';
+import { formatCurrency, getDescription } from '../../utils';
 
 type Props = {
   picture: string;
@@ -41,12 +41,13 @@ const Dishes = ({ picture, price, name, description, portion, id }: Props) => {
     dispatch(addItem(dishData));
     displayCart();
   };
+
   return (
     <>
       <DishCard>
         <img src={picture} alt={name} />
         <DishName>{name}</DishName>
-        <DishDescription>{description}</DishDescription>
+        <DishDescription>{getDescription(description, 'dish')}</DishDescription>
         <Button
           title="Mais detalhes"
           size="full"
